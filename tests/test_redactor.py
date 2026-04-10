@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from llm_promptguard import Redactor, Scanner, DataClass
+from promptsanitizer import Redactor, Scanner, DataClass
 
 
 def redact(text: str) -> str:
@@ -41,7 +41,7 @@ class TestRedactor:
         assert result == "email: [REDACTED:email]"
 
     def test_redact_called_directly(self):
-        from llm_promptguard.patterns import Finding, DataClass, Severity, ComplianceTag
+        from promptsanitizer.patterns import Finding, DataClass, Severity, ComplianceTag
 
         finding = Finding(
             data_class=DataClass.EMAIL,

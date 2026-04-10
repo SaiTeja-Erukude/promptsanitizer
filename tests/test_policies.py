@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from llm_promptguard import Action, DataClass, Direction, Policy  # noqa: F401
-from llm_promptguard.patterns import Finding, Severity, ComplianceTag
+from promptsanitizer import Action, DataClass, Direction, Policy  # noqa: F401
+from promptsanitizer.patterns import Finding, Severity, ComplianceTag
 
 
 def _finding(data_class: DataClass) -> Finding:

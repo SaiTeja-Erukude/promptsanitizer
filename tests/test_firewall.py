@@ -4,7 +4,7 @@ import re
 
 import pytest
 
-from llm_promptguard import (
+from promptsanitizer import (
     BlockedError,
     DataClass,
     Direction,

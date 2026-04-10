@@ -54,7 +54,7 @@ class GuardedOpenAI:
 
     Example::
 
-        from llm_promptguard.middleware import GuardedOpenAI
+        from promptsanitizer.middleware import GuardedOpenAI
         client = GuardedOpenAI(api_key="sk-...")
         response = client.chat.completions.create(
             model="gpt-4o",
@@ -79,7 +79,7 @@ class GuardedAsyncOpenAI:
 
     Example::
 
-        from llm_promptguard.middleware import GuardedAsyncOpenAI
+        from promptsanitizer.middleware import GuardedAsyncOpenAI
         client = GuardedAsyncOpenAI(api_key="sk-...")
         response = await client.chat.completions.create(...)
     """

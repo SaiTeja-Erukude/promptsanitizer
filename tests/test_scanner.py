@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from llm_promptguard import DataClass, Scanner
-from llm_promptguard.patterns import BUILTIN_PATTERNS, SecretPattern, Severity, ComplianceTag
+from promptsanitizer import DataClass, Scanner
+from promptsanitizer.patterns import BUILTIN_PATTERNS, SecretPattern, Severity, ComplianceTag
 import re
 
 

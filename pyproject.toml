@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "llm-promptguard"
+name = "promptsanitizer"
 version = "1.0.0"
 description = "Secrets firewall for AI pipelines — redact credentials and PII before they reach LLMs"
 readme = "README.md"
@@ -42,14 +42,14 @@ dev = [
 ]
 
 [project.scripts]
-llm-promptguard = "llm_promptguard.cli:cli"
+promptsanitizer = "promptsanitizer.cli:cli"
 
 [tool.hatch.build.targets.wheel]
-packages = ["llm_promptguard"]
+packages = ["promptsanitizer"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "llm_promptguard/",
+    "promptsanitizer/",
     "tests/",
     "LICENSE",
     "README.md",

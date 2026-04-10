@@ -62,7 +62,7 @@ class GuardedAnthropic:
 
     Example::
 
-        from llm_promptguard.middleware import GuardedAnthropic
+        from promptsanitizer.middleware import GuardedAnthropic
         client = GuardedAnthropic(api_key="sk-ant-...")
         response = client.messages.create(
             model="claude-3-5-sonnet-20241022",
@@ -88,7 +88,7 @@ class GuardedAsyncAnthropic:
 
     Example::
 
-        from llm_promptguard.middleware import GuardedAsyncAnthropic
+        from promptsanitizer.middleware import GuardedAsyncAnthropic
         client = GuardedAsyncAnthropic(api_key="sk-ant-...")
         response = await client.messages.create(...)
     """

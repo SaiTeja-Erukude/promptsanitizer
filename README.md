@@ -1,21 +1,21 @@
-# llm-promptguard
+# promptsanitizer
 
 Secrets firewall for AI pipelines — redact credentials and PII before they reach (or leave) LLMs.
 
 ## Install
 
 ```bash
-pip install llm-promptguard
+pip install promptsanitizer
 # with LLM middleware
-pip install "llm-promptguard[openai]"
-pip install "llm-promptguard[anthropic]"
-pip install "llm-promptguard[all]"
+pip install "promptsanitizer[openai]"
+pip install "promptsanitizer[anthropic]"
+pip install "promptsanitizer[all]"
 ```
 
 ## Quick start
 
 ```python
-from llm_promptguard import Firewall
+from promptsanitizer import Firewall
 
 fw = Firewall()
 safe = fw.clean("My key is sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx and email is dev@example.com")
@@ -33,7 +33,7 @@ print(safe)
 | `Policy.custom(rules)` | Per-`DataClass` action map |
 
 ```python
-from llm_promptguard import Firewall, Policy, BlockedError
+from promptsanitizer import Firewall, Policy, BlockedError
 
 # Block on credentials
 fw = Firewall(policy=Policy.strict())
@@ -59,7 +59,7 @@ print(fw.findings)
 
 ```python
 import re
-from llm_promptguard import Firewall, SecretPattern, DataClass, Severity, ComplianceTag
+from promptsanitizer import Firewall, SecretPattern, DataClass, Severity, ComplianceTag
 
 pattern = SecretPattern(
     name="internal_token",
@@ -78,7 +78,7 @@ print(fw.clean("Use token INTERNAL-ABCDEF1234567890 for staging"))
 ## Directions
 
 ```python
-from llm_promptguard import Firewall, Direction
+from promptsanitizer import Firewall, Direction
 
 fw = Firewall()
 print(fw.clean("key sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", direction=Direction.INBOUND))
@@ -123,7 +123,7 @@ print(fw.report().summary())
 
 ```python
 import openai
-from llm_promptguard.middleware import PromptGuardOpenAI
+from promptsanitizer.middleware import PromptGuardOpenAI
 
 client = PromptGuardOpenAI(openai.OpenAI())
 # Prompts are automatically cleaned before sending; responses are scanned on return
@@ -133,7 +133,7 @@ client = PromptGuardOpenAI(openai.OpenAI())
 
 ```python
 import anthropic
-from llm_promptguard.middleware import PromptGuardAnthropic
+from promptsanitizer.middleware import PromptGuardAnthropic
 
 client = PromptGuardAnthropic(anthropic.Anthropic())
 ```

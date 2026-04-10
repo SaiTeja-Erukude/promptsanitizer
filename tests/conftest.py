@@ -4,7 +4,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from llm_promptguard import Firewall, Policy
+from promptsanitizer import Firewall, Policy
 
 
 @pytest.fixture

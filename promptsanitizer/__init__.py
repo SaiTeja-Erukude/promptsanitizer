@@ -6,7 +6,7 @@ Scan, redact, or block credentials and PII before they reach (or leave) an LLM.
 
 Quick start::
 
-    from llm_promptguard import Firewall, Policy
+    from promptsanitizer import Firewall, Policy
 
     fw = Firewall()
     safe = fw.clean("My OpenAI key is sk-abc123xxxxxxxxxxxxxxxxxxxxxxxxxxxx")

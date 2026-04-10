@@ -4,9 +4,9 @@ from unittest.mock import MagicMock, AsyncMock, patch
 
 import pytest
 
-from llm_promptguard import Firewall, Policy
-from llm_promptguard.middleware._openai import _GuardedSyncCompletions, _GuardedAsyncCompletions
-from llm_promptguard.middleware._anthropic import _GuardedSyncMessages, _GuardedAsyncMessages
+from promptsanitizer import Firewall, Policy
+from promptsanitizer.middleware._openai import _GuardedSyncCompletions, _GuardedAsyncCompletions
+from promptsanitizer.middleware._anthropic import _GuardedSyncMessages, _GuardedAsyncMessages
 
 
 # ── OpenAI sync ───────────────────────────────────────────────────────────────
