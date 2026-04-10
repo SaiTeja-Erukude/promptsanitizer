@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llm-promptguard"
+version = "1.0.0"
+description = "Secrets firewall for AI pipelines — redact credentials and PII before they reach LLMs"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Sai Teja Erukude" }]
+license = { file = "LICENSE" }
+keywords = ["llm", "ai", "security", "pii", "redaction", "secrets", "firewall", "prompt"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "click>=8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/SaiTeja-Erukude/promptguard"
+Repository = "https://github.com/SaiTeja-Erukude/promptguard"
+"Bug Tracker" = "https://github.com/SaiTeja-Erukude/promptguard/issues"
+Changelog = "https://github.com/SaiTeja-Erukude/promptguard/releases"
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.20"]
+all = ["openai>=1.0", "anthropic>=0.20"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+llm-promptguard = "llm_promptguard.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["llm_promptguard"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "llm_promptguard/",
+    "tests/",
+    "LICENSE",
+    "README.md",
+    "pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
